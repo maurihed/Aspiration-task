@@ -1,0 +1,26 @@
+.TopicItem {
+    &__link {
+        color: #212121;
+        text-decoration: none;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+        padding: 1rem 2rem;
+        display: inline-block;
+        margin: 0 1rem;
+        &:hover, &:focus {
+            transform: scale(1.1);
+        }
+        display: flex;
+        align-items: center;
+    }
+    &__name {
+        font-weight: 700;
+        margin-right: 0.5rem;
+        text-transform: capitalize;
+    }
+    &__star {
+        display: inline;
+        height: 16px;
+        width: 16px;
+        margin-left: .25rem;
+    }
+}
