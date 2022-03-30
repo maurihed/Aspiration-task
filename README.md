@@ -1,5 +1,5 @@
 # Instructions
-## >How to start the project
+## How to start the project
 1. install the libraries with `npm install`
 2. duplicate and rename the file `example.env` to `.env`
 3. run the command `npm run start`
