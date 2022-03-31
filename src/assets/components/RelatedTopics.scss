@@ -1,9 +1,21 @@
 .RelatedTopics {
+    margin-top: 10rem;
+
+    &__title {
+        text-align: left;
+    }
+
     &__list {
         list-style: none;
-        margin: 0;
         padding: 0;
+        margin: 0 auto;
         display: flex;
-        justify-content: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    &__currentTopic {
+        margin: 0 auto;
+        margin-bottom: 3rem;
     }
 }

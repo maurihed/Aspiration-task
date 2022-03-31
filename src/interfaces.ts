@@ -4,10 +4,12 @@ export interface ITopic {
     name: string;
 
     stargazerCount: number;
+
+    relatedTopics?: ITopic[];
 }
 
 export interface IState {
-    topics: ITopic[];
+    topic: ITopic|null;
 
     loading: boolean;
 

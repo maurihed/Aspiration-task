@@ -5,7 +5,11 @@ import { useTopics } from "../../hooks/useTopics";
 
 let loading = false;
 let error = '';
-let topics: ITopic[] = [];
+let topic: ITopic = {
+    name: 'react',
+    stargazerCount: 123,
+    relatedTopics: [],
+};
 const fetchTopics = jest.fn();
 
 beforeEach(() => {
@@ -13,7 +17,7 @@ beforeEach(() => {
         state: {
             loading,
             error,
-            topics,
+            topic,
         },
         fetchTopics
     }));
@@ -26,11 +30,11 @@ beforeEach(() => {
 });
 
 test('should call fetchTopics with the default value', () => {
-    expect(useTopics()).toEqual({loading, error, topics})
+    expect(useTopics()).toEqual({loading, error, topic})
     expect(fetchTopics).toBeCalledWith('react');
 });
 
 test('should call fetchTopics with the name provided', () => {
-    expect(useTopics('Vue')).toEqual({loading, error, topics})
+    expect(useTopics('Vue')).toEqual({loading, error, topic})
     expect(fetchTopics).toBeCalledWith('Vue');
 });

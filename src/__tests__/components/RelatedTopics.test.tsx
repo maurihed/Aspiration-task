@@ -19,20 +19,23 @@ const renderComponent = (topicName = 'react') => {
 
 
 beforeEach(() => {
-    jest.spyOn(CustomHooks, 'useTopics').mockImplementation((name) => ({
-        topics: [
-            {name: `${name} 1`, stargazerCount: 1},
-            {name: 'topic 2', stargazerCount: 2},
-        ],
+    jest.spyOn(CustomHooks, 'useTopics').mockImplementation(() => ({
+        topic: {
+            name: 'react',
+            stargazerCount: 123,
+            relatedTopics: [
+                {name: `topic 1`, stargazerCount: 1},
+                {name: 'topic 2', stargazerCount: 2},
+            ]
+        },
         loading,
         error
     }));
 })
 
 test('should render topics', async () => {
-    const topicName = 'react';
-    renderComponent(topicName);
-    const firstTopic = await screen.findByText(`${topicName} 1`);
+    renderComponent();
+    const firstTopic = await screen.findByText('react');
     expect(firstTopic).toBeInTheDocument();
     loading = true;
 });
@@ -47,6 +50,6 @@ test('should render the loading component', async () => {
 
 test('should render the error component', async () => {
     renderComponent();
-    const errorComponent = await screen.findByText(`Render error component`);
+    const errorComponent = await screen.findByText(`Oops... Something went wrong, We're working on it.`);
     expect(errorComponent).toBeInTheDocument();
 })

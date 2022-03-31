@@ -7,7 +7,7 @@ import * as TopicService from "../services/TopicService";
 export const TopicContext = createContext<ITopicContext | null>(null);
 
 const initialState: IState = {
-    topics: [],
+    topic: null,
     loading: false,
     error: '',
 };
@@ -19,7 +19,7 @@ const TopicProvider = ({children}:  {children: ReactNode}) => {
         try {
             dispatch({ type: TopicAction.FETCH_TOPICS });
             const response: any = await TopicService.fetchTopics(name);
-            dispatch({ type: TopicAction.FETCH_SUCCESS, payload: response.data.topic.relatedTopics });
+            dispatch({ type: TopicAction.FETCH_SUCCESS, payload: response.data.topic });
         } catch (e) {
             dispatch({ type: TopicAction.FETCH_ERROR, payload: e });
         }

@@ -9,7 +9,7 @@ let topic = {
     stargazerCount: 123,
 };
 
-test('should render topics', async () => {
+test.only('should render topics', async () => {
     const renderer = create(
         <MemoryRouter initialEntries={[`/topic/react`]}>
             <Routes>
@@ -17,6 +17,7 @@ test('should render topics', async () => {
             </Routes>
         </MemoryRouter>
     );
-    const [link]: any = (renderer.toJSON() as any).children;
+
+    const link: any = renderer.toJSON();
     expect(link.props.href).toBe(`/topic/${topic.name}`);
 });

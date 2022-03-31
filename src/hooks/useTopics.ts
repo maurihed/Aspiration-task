@@ -3,13 +3,17 @@ import { TopicContext } from "../context/TopicContext";
 import { ITopicContext } from "../interfaces";
 
 export const useTopics = (name = 'react') => {
-    const {state, fetchTopics} = useContext(TopicContext) as ITopicContext;
+    const { state, fetchTopics } = useContext(TopicContext) as ITopicContext;
+    const { topic, loading, error } = state;
 
     useEffect(() => {
         fetchTopics(name);
     }, [fetchTopics, name]);
 
+
     return {
-        ...state,
+        loading,
+        error,
+        topic,
     }
 }
