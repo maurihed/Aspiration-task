@@ -8,16 +8,18 @@
 #### How to start the project
 1. install the libraries with `npm install`
 2. duplicate and rename the file `example.env` to `.env`
-3. run the command `npm run start`
-4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+3. generate GitHub token here [https://github.com/settings/tokens](https://github.com/settings/tokens) You should be logged on GitHub
+4. replace `[YOUR_GITHUB_TOKEN]` with your GitHub token in the `.env` 
+5. run the command `npm run start`
+6. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 #### How to run tests
 1. open the terminal
 2. run the command: `npm run test`
 
 #### `.env` description
-- `REACT_APP_GRAPHQL_SERVER_URL` -> it store the Graphql server url
-- `REACT_APP_GITHUB_TOKEN`  -> it store the GitTub token which is needed to consume the Graphql server
+- `REACT_APP_GRAPHQL_SERVER_URL` -> It store the Graphql server url
+- `REACT_APP_GITHUB_TOKEN`  -> It store the GitTub token which is needed to consume the Graphql server
 
 ## future improvements
 - Implement redux to get a better state management
